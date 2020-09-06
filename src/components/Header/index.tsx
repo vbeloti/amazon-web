@@ -1,13 +1,19 @@
-import React from 'react';
+import React from "react";
+import logo from "../../assets/img/logo.svg";
 
-import './styles.css';
+import "./styles.css";
+import { Link } from "react-router-dom";
 
 const Header: React.FC = () => {
   return (
-      <div className="header">
-          Header
-      </div>
+    <nav className="header">
+      <Link to="/">
+        <img className="header__logo" src={logo} alt="Amazon logo" />
+      </Link>
+
+      <input className="header__searchInput" type="text"/>
+    </nav>
   );
-}
+};
 
 export default Header;
