@@ -13,6 +13,10 @@
 
 /config/firebase.ts
 
+config/firebase.ts
+
+firebase.ts
+
 # misc
 .DS_Store
 .env.local
