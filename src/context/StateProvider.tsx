@@ -1,8 +1,17 @@
 import React, { createContext, useReducer, useContext } from "react";
 
 export const initialState = {
-  basket: [],
-  user: null
+  basket: [
+    {
+      id: 1234,
+      title: "Titulo Produto",
+      price: 11.95,
+      rating: 5,
+      image:
+        "https://images-na.ssl-images-amazon.com/images/I/51Ieq0twp%2BL._AC_SL1000_.jpg",
+    },
+  ],
+  user: null,
 };
 
 export interface IInitialState {
@@ -11,8 +20,9 @@ export interface IInitialState {
 }
 
 export interface IAction {
-  type: 'ADD_TO_BASKET' | 'REMOVE_TO_BASKET';
+  type: "ADD_TO_BASKET" | "REMOVE_FROM_BASKET";
   item: IItem[];
+  id: number;
 }
 
 export interface IItem {
