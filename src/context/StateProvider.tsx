@@ -15,7 +15,7 @@ export interface IAction {
   item: IItem[];
 }
 
-interface IItem {
+export interface IItem {
   id: number;
   image: string;
   price: number;

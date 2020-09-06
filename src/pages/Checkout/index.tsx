@@ -1,5 +1,5 @@
 import React from "react";
-import { useStateValue } from "../../context/StateProvider";
+import { useStateValue, IItem } from "../../context/StateProvider";
 import bannerAd from "../../assets/img/banner_a.jpg";
 
 import "./styles.css";
@@ -19,9 +19,10 @@ const Checkout: React.FC = () => {
       ) : (
         <div>
           <h2 className="checkout__title">Carrinho de compras</h2>
-          {basket?.map((item) => (
+          {basket?.map((item: IItem) => (
               <CheckoutProduct
-                item={item.id}
+                id={item.id}
+                title={item.title}
                 image={item.image}
                 price={item.price}
                 rating={item.rating}
