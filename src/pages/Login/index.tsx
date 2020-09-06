@@ -8,12 +8,15 @@ import { auth } from "firebase";
 const Login: React.FC = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const history = useHistory();
 
   const handleLogin = (event: MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
     auth()
       .signInWithEmailAndPassword(email, password)
-      .then((auth) => {})
+      .then((auth) => {
+        history.push('/');
+      })
       .catch((e) => alert(e.message));
   };
 
@@ -22,7 +25,9 @@ const Login: React.FC = () => {
 
     auth()
     .createUserWithEmailAndPassword(email, password)
-    .then((auth) => {})
+    .then((auth) => {
+
+    })
     .catch((e) => alert(e.message));
   };
   return (
