@@ -1,15 +1,19 @@
 import { IInitialState, IAction } from "./StateProvider";
 
 
-function reducer(state: IInitialState, action: IAction) {
+const reducer = (state: IInitialState, action: IAction) => {
+    console.log(action);
+    console.log(state);
     switch (action.type) {
         case 'ADD_TO_BASKET':
 
-            break;
+            return { ...state,
+                basket: [...state.basket, action.item]
+             };
 
         case 'REMOVE_TO_BASKET':
 
-            break;
+            return { state };
 
         default:
             return state;

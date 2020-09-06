@@ -1,23 +1,34 @@
-import React, { createContext, useReducer } from "react";
+import React, { createContext, useReducer, useContext } from "react";
 
-export const initialState: IInitialState = {
-  basket: {},
+export const initialState = {
+  basket: [],
+  user: null
 };
 
 export interface IInitialState {
-  basket: object;
+  basket: any[];
+  user: string | null;
 }
 
 export interface IAction {
   type: 'ADD_TO_BASKET' | 'REMOVE_TO_BASKET';
+  item: IItem[];
+}
+
+interface IItem {
+  id: number;
+  image: string;
+  price: number;
+  rating: number;
+  title: string;
 }
 
 interface IStateProvider {
   reducer: (state: IInitialState, action: IAction) => any;
-  state: any;
+  state: IInitialState;
 }
 
-export const StateContext = createContext<any>(initialState);
+export const StateContext = createContext<any>({});
 
 export const StateProvider: React.FC<IStateProvider> = ({
   reducer,
@@ -25,8 +36,10 @@ export const StateProvider: React.FC<IStateProvider> = ({
   children,
 }) => {
   return (
-    <StateContext.Provider value={useReducer(state, reducer)}>
+    <StateContext.Provider value={useReducer(reducer, state)}>
       {children}
     </StateContext.Provider>
   );
 };
+
+export const useStateValue = () => useContext(StateContext);
