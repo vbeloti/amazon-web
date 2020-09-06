@@ -4,6 +4,7 @@ import bannerAd from "../../assets/img/banner_a.jpg";
 
 import "./styles.css";
 import CheckoutProduct from "../../components/CheckoutProduct";
+import Subtotal from "../../components/Subtotal";
 
 const Checkout: React.FC = () => {
   const [{ basket }] = useStateValue();
@@ -35,7 +36,7 @@ const Checkout: React.FC = () => {
       </div>
     {basket?.length > 0 && (
         <div className="checkout__right">
-            <h1>Subtotal</h1>
+            <Subtotal />
         </div>
     )}
     </div>

@@ -1,5 +1,15 @@
 import { IInitialState, IAction } from "./StateProvider";
 
+interface ICheckoutProduct {
+    id: number;
+    title: string;
+    image: string;
+    price: number;
+    rating: number;
+  }
+
+export const getBasketTotal = (basket: ICheckoutProduct[]) => basket.reduce((amount, item) => item.price + amount, 0);
+
 
 const reducer = (state: IInitialState, action: IAction) => {
     console.log(action);
