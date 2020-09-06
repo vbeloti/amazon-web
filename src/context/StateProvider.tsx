@@ -4,30 +4,28 @@ export const initialState: IInitialState = {
   basket: {},
 };
 
-interface IInitialState {
+export interface IInitialState {
   basket: object;
 }
 
-interface IStateProvider {
-  dispatch: React.Dispatch<any>;
-  state: IInitialState;
+export interface IAction {
+  type: 'ADD_TO_BASKET' | 'REMOVE_TO_BASKET';
 }
 
-export const StateContext = createContext<{
-  state: IInitialState;
-  dispatch: React.Dispatch<any>;
-}>({
-    state: initialState,
-    dispatch: () => null
-  });
+interface IStateProvider {
+  reducer: (state: IInitialState, action: IAction) => any;
+  state: any;
+}
+
+export const StateContext = createContext<any>(initialState);
 
 export const StateProvider: React.FC<IStateProvider> = ({
-  dispatch,
+  reducer,
   state,
   children,
 }) => {
   return (
-    <StateContext.Provider value={useReducer(state, dispatch)}>
+    <StateContext.Provider value={useReducer(state, reducer)}>
       {children}
     </StateContext.Provider>
   );
