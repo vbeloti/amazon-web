@@ -12,9 +12,12 @@ export const getBasketTotal = (basket: ICheckoutProduct[]) => basket.reduce((amo
 
 
 const reducer = (state: IInitialState, action: IAction) => {
-    console.log(action);
-    console.log(state);
     switch (action.type) {
+        case 'SET_USER':
+            return {
+                ...state,
+                user: action.user
+            }
         case 'ADD_TO_BASKET':
 
             return {

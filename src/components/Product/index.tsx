@@ -12,7 +12,7 @@ interface IProduct {
 }
 
 const Product: React.FC<IProduct> = ({ id, title, price, rating, image }) => {
-  const [{}, dispatch] = useStateValue();
+  const dispatch = useStateValue()[1];
 
   const handleToBasket = (event: MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();

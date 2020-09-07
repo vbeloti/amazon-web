@@ -18,7 +18,7 @@ const CheckoutProduct: React.FC<ICheckoutProduct> = ({
   price,
   rating,
 }) => {
-    const [{ basket }, dispatch] = useStateValue();
+    const dispatch = useStateValue()[1];
     const handleRemoveFromBasket = () => {
         dispatch({
             type: "REMOVE_FROM_BASKET",

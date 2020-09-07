@@ -4,6 +4,10 @@
   margin-right: auto;
 }
 
+.home__products {
+  margin-top: -200px;
+}
+
 .home__row {
   display: flex;
   z-index: 1;

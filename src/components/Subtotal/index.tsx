@@ -6,7 +6,7 @@ import { useStateValue } from "../../context/StateProvider";
 import { getBasketTotal } from "../../context/reducer";
 
 const Subtotal: React.FC = () => {
-  const [{ basket }, dispatch] = useStateValue();
+  const [{ basket }] = useStateValue();
 
   return (
     <div className="subtotal">
